@@ -1,0 +1,18 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first" style="margin: 10px;">
+      Employee Application
+    </div>
+
+    <!-- Login Form -->
+    <form #form="ngForm" (ngSubmit)=submit(form)>
+      <input type="text" id="username" class="form-control" name="username" placeholder="Username" required [(ngModel)]="username">
+      <input type="text" id="password" class="form-control" name="password" placeholder="Password" required [(ngModel)]="password">
+      <button type="submit" class="btn btn-primary" [disabled]="!form.form.valid" style="margin: 10px;">Login</button>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employeeList">Employee List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employee">Add Employee</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <h2 class="text-center">{{title}}</h2>
+  <br>
+  <form class="form-horizontal" role="form" [formGroup]=employeeForm>
+    <div class="form-row" style="display: flex;   flex-flow: row wrap;
+    align-content: flex-start;">
+      <div class="col form-group">
+        <label for="employeeID" class="col-sm-4 control-label">Employee ID*</label>
+        <div class="col-sm-9">
+          <input type="text" id="employeeID" placeholder="Employee ID" class="form-control" autofocus
+            formControlName="employeeID">
+        </div>
+      </div>
+      <div class="col form-group">
+        <label for="firstName" class="col-sm-4 control-label">First Name*</label>
+        <div class="col-sm-9">
+          <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus
+            formControlName="firstName">
+        </div>
+      </div>
+      <div class="col form-group">
+        <label for="lastName" class="col-sm-4 control-label">Last Name*</label>
+        <div class="col-sm-9">
+          <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus
+            formControlName="lastName">
+        </div>
+      </div>
+    </div>
+    <div class="form-row" style="display: flex;   flex-flow: row wrap;
+    align-content: flex-start; margin-top: 5px;">
+      <div class="col form-group">
+        <label for="dob" class="col-sm-4 control-label">DOB*</label>
+        <div class="col-sm-9">
+          <input type="date" id="dob" placeholder="Date Of Birth" class="form-control" autofocus formControlName="dob">
+        </div>
+      </div>
+      <div class="col form-group">
+        <label for="bloodGroup" class="col-sm-4 control-label">Blood Group*</label>
+        <div class="col-sm-9">
+          <select formControlName="bloodGroup">
+            <option *ngFor="let bp of bloodGrp" [value]="bp.id">
+              {{ bp.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col form-group">
+        <label for="mobileNumber" class="col-sm-4 control-label">Mobile Number*</label>
+        <div class="col-sm-9">
+          <input type="number" id="mobileNumber" placeholder="Mobile Number" class="form-control" autofocus
+            formControlName="mobileNumber">
+        </div>
+      </div>
+    </div>
+    <div class="form-row" style="display: flex;   flex-flow: row wrap;
+    align-content: flex-start; margin-top: 5px;">
+      <div class="form-group col-sm-10">
+        <label for="address" class="col-sm-4 control-label">Address*</label>
+        <div class="col-sm-9">
+          <textarea id="address" placeholder="Address" rows="3" class="form-control" autofocus
+            formControlName="address"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="form-row" style="display: flex;   flex-flow: row wrap;
+    align-content: flex-start; margin-top: 5px;">
+      <button class="btn btn-primary btn-block" style="margin-right: 10px;"
+        [disabled]="!employeeForm.valid" (click)="save()">{{btnText}}</button>
+      <button class="btn btn-primary btn-block" style="margin-right: 10px;" [hidden]="btnText=='Save'"
+        (click)="delete()">Delete</button>
+      <button class="btn btn-primary btn-block" style="margin-right: 10px;" (click)="back()">Back</button>
+    </div>
+  </form> <!-- /form -->
+</div> <!-- ./container -->
